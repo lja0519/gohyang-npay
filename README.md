@@ -30,6 +30,5 @@ python3 gohyang_npay.py --review 6036 firstcome --quota 500 --note "포스터로
 
 ## 게시
 
-GitHub Actions(`.github/workflows/daily.yml`)가 매일 `./publish.sh` 를 실행한다.
-보고서를 다시 만들고 바뀐 내용을 커밋·push 하며, `docs/` 가 Pages 로 게시된다.
-판정을 기록한 뒤에는 `overrides.json` 을 커밋·push 해야 다음 실행에 반영된다.
+`./publish.sh` 가 보고서를 다시 만들고 바뀐 내용을 커밋·push 하며, `docs/` 가 Pages 로 게시된다.
+GitHub Actions 러너에서는 고향사랑e음 접속이 시간 초과되므로 국내 PC에서 실행한다.

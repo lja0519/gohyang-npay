@@ -1,0 +1,16 @@
+name: test
+
+# 보고서 생성은 GitHub 러너에서 고향사랑e음 접속이 시간 초과되어 여기서 돌리지 않는다.
+# 국내 PC에서 ./publish.sh 를 실행해 갱신한다.
+on:
+  push:
+    paths: ["**.py", ".github/workflows/**"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest
