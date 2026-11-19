@@ -1,0 +1,27 @@
+name: daily-report
+
+on:
+  schedule:
+    - cron: "0 1 * * *" # 매일 10:00 KST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-report
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: python3 -m unittest
+      - name: Build and publish report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ./publish.sh
